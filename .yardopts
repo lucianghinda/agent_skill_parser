@@ -1,0 +1,12 @@
+--markup markdown
+--format markdown
+--output-dir doc
+--title "AgentSkillParser"
+--protected
+--no-private
+--plugin markdown
+lib/**/*.rb
+-
+README.md
+CHANGELOG.md
+LICENSE.txt
