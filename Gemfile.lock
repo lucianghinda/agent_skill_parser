@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    agent_skill_parser (0.1.0)
+    agent_skill_parser (0.2.0)
       zeitwerk (~> 2.6)
 
 GEM
@@ -81,7 +81,7 @@ DEPENDENCIES
   yard-markdown
 
 CHECKSUMS
-  agent_skill_parser (0.1.0)
+  agent_skill_parser (0.2.0)
   ast (2.4.3) sha256=954615157c1d6a382bc27d690d973195e79db7f55e9765ac7c481c60bdb4d383
   csv (3.3.5) sha256=6e5134ac3383ef728b7f02725d9872934f523cb40b961479f69cf3afa6c8e73f
   date (3.5.1) sha256=750d06384d7b9c15d562c76291407d89e368dda4d4fff957eb94962d325a0dc0

@@ -5,13 +5,18 @@ module AgentSkillParser
   #
   # @example With frontmatter
   #   splitter = DocumentSplitter.new("---\nname: skill\n---\n# Body")
-  #   splitter.call # => ["name: skill", "# Body"]
+  #   result = splitter.call
+  #   result.yaml_string # => "name: skill"
+  #   result.body # => "# Body"
   #
   # @example Without frontmatter
   #   splitter = DocumentSplitter.new("# Just body")
-  #   splitter.call # => ["", "# Just body"]
+  #   result = splitter.call
+  #   result.yaml_string # => ""
+  #   result.body # => "# Just body"
   class DocumentSplitter
     # Represents a raw YAML document with separated YAML frontmatter and body.
+    # Used as an intermediate structure during parsing.
     #
     # @!attribute [r] yaml_string
     #   @return [String] YAML frontmatter content

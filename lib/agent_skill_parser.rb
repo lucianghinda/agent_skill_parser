@@ -9,7 +9,7 @@ loader.setup
 # Parses skill files with YAML frontmatter and markdown body.
 #
 # Skill file format:
-# ```yaml
+# ```markdown
 # ---
 # name: my-skill
 # description: A helpful skill
@@ -43,7 +43,6 @@ module AgentSkillParser
   # @raise [Errors::Parser] if YAML is invalid or file cannot be read
   # @raise [Errors::Validation] if frontmatter fails validation
   # @raise [Errno::ENOENT] if file does not exist
-  # @see Parser#call
   def self.parse(file_path)
     Parser.new(file_path).call
   end

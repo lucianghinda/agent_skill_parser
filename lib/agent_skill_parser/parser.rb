@@ -1,13 +1,9 @@
 # frozen_string_literal: true
 
 module AgentSkillParser
-  # Main parser that orchestrates the parsing pipeline.
+  # Orchestrates the parsing pipeline for skill files.
   #
-  # Pipeline stages:
-  # 1. {DocumentSplitter} - Split YAML frontmatter from body
-  # 2. {FrontmatterParser} - Parse YAML into {Frontmatter}
-  # 3. {Validator} - Validate frontmatter schema
-  # 4. Construct {Skill} object
+  # Pipeline stages: DocumentSplitter → FrontmatterParser → Validator → Skill construction
   #
   # @example Parse a skill file
   #   parser = Parser.new("my_skill.md")

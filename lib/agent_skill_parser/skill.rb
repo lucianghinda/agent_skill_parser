@@ -15,13 +15,11 @@ module AgentSkillParser
   #   )
   Skill = Data.define(:frontmatter, :body) do
     # @return [String] skill name (delegates to frontmatter)
-    # @see Frontmatter#name
     def name
       frontmatter.name
     end
 
     # @return [String] skill description (delegates to frontmatter)
-    # @see Frontmatter#description
     def description
       frontmatter.description
     end

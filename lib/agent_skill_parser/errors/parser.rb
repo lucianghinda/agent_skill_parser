@@ -2,7 +2,9 @@
 
 module AgentSkillParser
   module Errors
-    # Raised when parsing fails (e.g., invalid YAML, file not found).
+    # Raised when parsing fails.
+    #
+    # Raised for: invalid YAML, missing frontmatter, file not found
     #
     # @example Rescue pattern
     #   begin
@@ -10,8 +12,6 @@ module AgentSkillParser
     #   rescue AgentSkillParser::Errors::Parser => e
     #     puts "Parsing error: #{e.message}"
     #   end
-    #
-    # @see FrontmatterParser#call
     class Parser < Base
     end
   end

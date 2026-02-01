@@ -3,7 +3,8 @@
 A Ruby gem for parsing skill files that use YAML frontmatter and markdown body content. Designed for agent/AI systems where skills are defined as structured markdown documents with metadata.
 
 Warning: 
-- This gem does not protect against Prompt Injection. It only parses the structure of the skill according with the specification from https://agentskills.io/specification
+- This gem does not protect against Prompt Injection so if you read with this a skill file and pipe it through an LLM it will send there the exact skill file without any filtering. 
+- It only parses the structure of the skill according with the specification from https://agentskills.io/specification
 
 ## Installation
 

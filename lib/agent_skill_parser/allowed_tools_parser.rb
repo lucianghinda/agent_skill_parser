@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 module AgentSkillParser
-  # Parses tool names with optional argument patterns.
+  # Parses tool names with optional regex patterns for arguments.
+  #
+  # Format: `ToolName` or `ToolName(pattern)` where pattern is optional.
+  # Multiple tools are space or comma separated.
   #
   # @example Parse tools
   #   parser = AllowedToolsParser.new("bash, search_files(\\.rb$)")
@@ -11,7 +14,7 @@ module AgentSkillParser
   #   #      AllowedTool.new(name: "search_files", pattern: "\\.rb$")
   #   #    ]
   class AllowedToolsParser
-    # @return [Regexp] pattern matching "tool_name" or "tool_name(pattern)"
+    # Pattern matching "tool_name" or "tool_name(pattern)"
     TOOL_REGEX = /([A-Za-z_]\w*)(?:\(([^)]*)\))?/
 
     # @param string [String] comma-separated tool list

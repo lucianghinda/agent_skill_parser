@@ -28,12 +28,14 @@ module AgentSkillParser
     private
 
     # @return [Hash] parsed YAML data
+    # :nodoc:
     def parse_yaml
       YAML.safe_load(@yaml_string) || {}
     end
 
     # @param data [Hash] raw YAML data
     # @return [Frontmatter] constructed frontmatter
+    # :nodoc:
     def build_frontmatter(data)
       allowed_tools_data = data.delete("allowed-tools")
       metadata_data = data.delete("metadata") || {}
@@ -50,6 +52,7 @@ module AgentSkillParser
 
     # @param data [Object] metadata value
     # @return [Hash{String => String}] stringified metadata
+    # :nodoc:
     def coerce_metadata(data)
       return {} unless data.is_a?(Hash)
 
@@ -58,6 +61,7 @@ module AgentSkillParser
 
     # @param data [String, Array, nil] allowed-tools value
     # @return [Array<AllowedTool>] parsed tool list
+    # :nodoc:
     def parse_allowed_tools(data)
       return [] if data.nil? || data.empty?
 

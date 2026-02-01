@@ -3,6 +3,12 @@
 module AgentSkillParser
   # Validates frontmatter data against schema rules.
   #
+  # Validation rules:
+  # - Name: 1-64 chars, lowercase letters/numbers/hyphens only, no consecutive hyphens,
+  #   cannot start/end with hyphen
+  # - Description: 1-1024 characters
+  # - Compatibility: optional, max 500 characters
+  #
   # @example Successful validation
   #   fm = Frontmatter.new(name: "skill", description: "A skill", ...)
   #   Validator.new(fm).call # => nil (no error)
@@ -10,20 +16,18 @@ module AgentSkillParser
   # @example Failed validation
   #   fm = Frontmatter.new(name: "Bad Name!", description: "...", ...)
   #   Validator.new(fm).call # => raises Errors::Validation
-  #
-  # @see Errors::Validation
   class Validator
-    # @return [Integer] maximum name length
+    # Maximum name length
     NAME_MAX_LENGTH = 64
-    # @return [Integer] minimum name length
+    # Minimum name length
     NAME_MIN_LENGTH = 1
-    # @return [Regexp] allowed name pattern
+    # Allowed name pattern
     NAME_PATTERN = /\A[a-z0-9-]+\z/
-    # @return [Integer] maximum description length
+    # Maximum description length
     DESCRIPTION_MAX_LENGTH = 1024
-    # @return [Integer] minimum description length
+    # Minimum description length
     DESCRIPTION_MIN_LENGTH = 1
-    # @return [Integer] maximum compatibility length
+    # Maximum compatibility length
     COMPATIBILITY_MAX_LENGTH = 500
 
     # @param frontmatter [Frontmatter] parsed frontmatter data
@@ -43,6 +47,7 @@ module AgentSkillParser
 
     # @return [void]
     # @raise [Errors::Validation] if name is invalid
+    # :nodoc:
     def validate_name
       name = @frontmatter.name
 
@@ -63,6 +68,7 @@ module AgentSkillParser
 
     # @return [void]
     # @raise [Errors::Validation] if description is invalid
+    # :nodoc:
     def validate_description
       description = @frontmatter.description
 
@@ -77,6 +83,7 @@ module AgentSkillParser
 
     # @return [void]
     # @raise [Errors::Validation] if compatibility is too long
+    # :nodoc:
     def validate_compatibility
       return if @frontmatter.compatibility.nil?
 
