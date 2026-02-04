@@ -26,16 +26,4 @@ module AgentSkillParser
   #     allowed_tools: [AllowedTool.new(name: "bash", pattern: nil)]
   #   )
   Frontmatter = Data.define(:name, :description, :license, :compatibility, :metadata, :allowed_tools)
-
-  # Nil object for empty frontmatter.
-  # Returned by FrontmatterParser when YAML string is empty or missing.
-  # All fields are nil or empty to safely handle missing frontmatter.
-  NilFrontmatter = Frontmatter.new(
-    name: "",
-    description: "",
-    license: nil,
-    compatibility: nil,
-    metadata: {},
-    allowed_tools: []
-  ).freeze
 end

@@ -1,3 +1,7 @@
+## [0.2.2] - 2026-02-04
+
+- Extracted `NilFrontmatter` into its own file for better code organization
+
 ## [0.2.1] - 2026-02-04
 
 - Enabled RubyGems MFA requirement in gemspec
