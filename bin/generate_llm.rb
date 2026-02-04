@@ -13,7 +13,7 @@ unless File.exist?(main_path)
   exit 1
 end
 
-md_files = Dir.glob(File.join(doc_dir, "**", "*.md")).sort
+md_files = Dir.glob(File.join(doc_dir, "**", "*.md"))
 md_files.reject! { |path| File.expand_path(path) == File.expand_path(main_path) }
 
 links = md_files.map do |path|
